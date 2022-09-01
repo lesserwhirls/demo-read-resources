@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.npm.versionToNpmRanges
+
 /*
  * Copyright 2022 Sean C. Arms
  *
@@ -28,7 +30,12 @@ dependencies {
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "com.lesserwhirls.demo.rr.ReadResourceKt"
+        attributes(
+            "Main-Class" to "com.lesserwhirls.demo.rr.ReadResourceKt",
+        )
+    }
+    from("LICENSE") {
+        into("META-INF/")
     }
 }
 
